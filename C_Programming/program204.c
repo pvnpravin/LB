@@ -1,0 +1,28 @@
+#include<stdio.h>
+#include<fcntl.h>
+
+int main()
+{
+   int fd = 0, iRet = 0;
+   char fileName[20];
+   char Data[50]; 
+
+   printf("Enter the Name of File : \n");
+   scanf("%s", fileName);
+
+   fd = open(fileName, O_RDWR);
+
+   if(fd == -1)
+   {
+    printf("Unable to open");
+    return -1;
+   }
+
+   iRet = read(fd, Data, 5);
+
+   printf("%d bytes get successfully Read ", iRet);
+
+   close(fd);
+
+    return 0;
+}
